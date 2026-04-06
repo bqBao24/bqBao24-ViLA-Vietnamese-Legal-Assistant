@@ -29,8 +29,8 @@ ViLA/
 ├── data/
 │   ├── raw/                        # Raw legal documents
 │   ├── chroma_db/                  # Persisted ChromaDB vector store
-│   └── BM25/                       # Serialized BM25 index (pickle)
-│
+│   ├── BM25/                       # Serialized BM25 index (pickle)
+│   └── processed                   # Raw legal documents with ID 
 └── src/
     ├── config/
     │   └── config.py               # Central config (paths, hyperparameters)
