@@ -17,35 +17,16 @@ def build_llm() -> ChatOpenAI:
 
 
 def build_memory(llm: ChatOpenAI) -> ConversationTokenBufferMemory:
-    """
-    Memory giới hạn theo cả 2 chiều:
-    - MAX_TOKEN_LIMIT  : cắt khi tổng token lịch sử vượt ngưỡng
-    - MAX_HISTORY_TURNS: cắt khi số lượt hội thoại vượt ngưỡng
-    ConversationTokenBufferMemory xử lý token limit tự động.
-    Giới hạn turns được kiểm soát thêm trong build_chain().
-    """
     return ConversationTokenBufferMemory(
         llm=llm,
         max_token_limit=MAX_TOKEN_LIMIT,
         memory_key="chat_history",
-        return_messages=True,       # trả về dạng Message objects cho ConversationalRetrievalChain
-        output_key="answer",        # chain trả về cả "answer" lẫn "source_documents", cần chỉ rõ key nào lưu vào memory
+        return_messages=True,       
+        output_key="answer",        
     )
 
 
 def build_chain() -> ConversationalRetrievalChain:
-    """
-    Kết nối toàn bộ pipeline:
-        User query
-            ↓
-        Condense question (query + chat history → standalone query)
-            ↓
-        LangChainHybridRetriever (BM25 + Chroma → RRF → Rerank)
-            ↓
-        LLM generate answer
-            ↓
-        Lưu vào Memory
-    """
     llm = build_llm()
     memory = build_memory(llm)
     retriever = LangChainHybridRetriever()

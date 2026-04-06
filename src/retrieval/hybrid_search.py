@@ -19,10 +19,6 @@ class HybridSearch:
         )
 
     def get_relevant_documents(self, query: str):
-        """
-        Quy trình: Retriever (200) -> RRF Fusion -> Truncate  -> Rerank 
-        """
-        
         # Retrieval
         dense_docs = self.dense_retriever.invoke(query)
         sparse_docs = self.sparse_retriever.invoke(query)
