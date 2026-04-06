@@ -1,0 +1,21 @@
+data/chroma_db/*
+!data/chroma_db/.gitkeep
+
+data/BM25/*
+!data/BM25/.gitkeep
+
+data/raw/*
+!data/raw/.gitkeep
+
+# File môi trường và cache
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+.venv/
+
+.vscode/
+.idea/
+.DS_Store
