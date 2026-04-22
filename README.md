@@ -1,25 +1,25 @@
-# 🏛️ ViLA-Vietnamese-Legal-Assistance
+# ViLA-Vietnamese-Legal-Assistance
 
 > A conversational AI system for Vietnamese legal question answering, Built on a Advanced RAG (Retrieval-Augmented Generation) with hybrid retrieval pipeline and fully self-hosted LLM(large language model)
 
 ---
 
-## 📌 Overview
+## Overview
 
 This project is a Vietnamese legal chatbot that goes beyond simple document retrieval. It combines **dense + sparse hybrid search**, **reciprocal rank fusion (RRF)**, **cross-encoder reranking** into a full conversational pipeline — all served locally without paid API calls.
 
 **Key capabilities:**
-- 🔍 Hybrid retrieval (ChromaDB + BM25) with RRF fusion
-- 🗺️ Query routing (legal / greeting / out-of-scope / clarify)
-- ⚡ LLM inference via vLLM (Qwen2.5 7B Instruct, 4-bit quantized)
-- 💬 Interactive UI via Streamlit
+- Hybrid retrieval (ChromaDB + BM25) with RRF fusion
+- Query routing (legal / greeting / out-of-scope / clarify)
+- LLM inference via vLLM (Qwen2.5 7B Instruct, 4-bit quantized)
+- Interactive UI via Streamlit
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 ![ViLA System Architecture](Architecture.png)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ViLA/
@@ -51,7 +51,7 @@ ViLA/
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 All hyperparameters are centralized in `src/config/config.py`:
 
@@ -68,7 +68,7 @@ All hyperparameters are centralized in `src/config/config.py`:
 
 ---
 
-## 📚 Knowledge Base & Legal Scope
+## Knowledge Base & Legal Scope
 
 To ensure the highest level of accuracy and legal compliance, the chatbot's knowledge base is grounded in a curated collection of official **Vietnamese Legal Documents**. The current version of **ViLA** covers the following key jurisdictions:
 
@@ -82,7 +82,7 @@ To ensure the highest level of accuracy and legal compliance, the chatbot's know
 ---
 
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |---|---|
@@ -92,12 +92,12 @@ To ensure the highest level of accuracy and legal compliance, the chatbot's know
 | Vector Store | ChromaDB |
 | Sparse Retrieval | BM25 (rank-bm25) |
 | Embeddings | huyydangg/DEk21_hcmute_embedding (finetuned from "bkai-foundation-models/vietnamese-bi-encoder") |
-| Reranker | huynhdat543/VietNamese_law_rerank (finetuned from "Alibaba-NLP/gte-multilingual-reranker-base" |
+| Reranker | BAAI/bge-m3 |
 | UI | Streamlit |
 | Compute | Google Colab T4 GPU |
 
 ---
  
-## 🚀 Demo
+## Demo
 
 | Link demo: https://www.youtube.com/watch?v=a8W2GahAcZw.
